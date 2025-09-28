@@ -45,8 +45,6 @@ requirements:
     - r-mirt >=1.37
     - r-pbapply
     - r-shiny >=1.0.1
-    - libblas
-    - liblapack
   run:
     - r-base
     - r-rcpp
