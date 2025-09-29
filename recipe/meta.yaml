@@ -12,7 +12,7 @@ source:
   sha256: 26c0de3f0c54b57005a61ba2804fd2361ab2c2fff2281dc73039d9d09292ab77
 
 build:
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,6 +23,7 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
     - {{ compiler('c') }}          # [not win]
     - {{ stdlib("c") }}            # [not win]
     - {{ compiler('m2w64_c') }}    # [win]
@@ -34,7 +35,6 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-rcpp
@@ -50,7 +50,6 @@ requirements:
   run:
     - r-base
     - r-rcpp
-    - r-rcpparmadillo
     - r-lattice
     - r-lpsolve
     - r-markdown
